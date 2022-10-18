@@ -1,10 +1,12 @@
 public class Notebook {
     int weight;
     int price;
+    int year;
 
-    public Notebook(int weight, int price) {
+    public Notebook(int weight, int price, int year) {
         this.weight = weight;
         this.price = price;
+        this.year = year;
     }
 
     public void checkPrice() {
@@ -20,12 +22,23 @@ public class Notebook {
     }
 
     public void checkweight() {
-        if (this.weight <=600) {
+        if (this.weight <= 600)
             System.out.println("This notebook is light.");
-        } else if (this.weight > 650 && this.weight <= 1600) {
-            System.out.println("This notebook weight is ok.");
-        } else if (this.weight> 1600) {
-            System.out.println("this notebook is heavy");
-        }
+    else if (this.weight >650&&this.weight <=1600)
+        System.out.println("This notebook weight is ok.");
+    else if (this.weight>1600)
+        System.out.println("this notebook is heavy");
+    }
+
+    public void checkyear() {
+        if (this.year <= 1998)
+            System.out.println("this notebook is old");
+        else if (this.year > 1999 && this.year <= 2019)
+            System.out.println("this notebook is ok.");
+        else if (this.year > 2021)
+            System.out.println("this notebook is brand new");
     }
 }
+
+
+
