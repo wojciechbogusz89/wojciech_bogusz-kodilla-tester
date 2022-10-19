@@ -15,4 +15,16 @@ public class Grades {
         this.size++;
 
     }
+    public int lastGrade() {
+        return this.grades[this.size - 1];
+    }
+    public double averageGrades() {
+        double sum = 0;
+        for (int i = 0; i < this.size; i++) {
+            sum = sum + this.grades[i];
+        }
+        return sum / this.size;
+
+    }
+
 }
