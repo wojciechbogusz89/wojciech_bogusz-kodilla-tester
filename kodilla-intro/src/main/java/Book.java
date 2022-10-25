@@ -8,7 +8,7 @@ public class Book {
 
     }
     public static Book of(String author, String title) {
-        Book book = new Book("Author", "Title");
+        Book book = Book.of("Author", "Title");
         return book;
 
     }
