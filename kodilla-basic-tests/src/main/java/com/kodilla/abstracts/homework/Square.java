@@ -13,5 +13,4 @@ public class Square extends Shape{
         return bokB = bokA * 4;
 
     }
-    public int gets
 }

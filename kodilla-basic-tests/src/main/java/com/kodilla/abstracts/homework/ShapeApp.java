@@ -6,6 +6,6 @@ public class ShapeApp {
         Shape Rectangle = new rectangle(2,4);
         Shape Triangle = new triangle(3,5);
 
-        System.out.println("pole kwadratu" + Square.getClass());
+
     }
 }
