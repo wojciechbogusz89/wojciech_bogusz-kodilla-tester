@@ -26,6 +26,6 @@ public class CalculatorTestSuite {
         Calculator calculator = new Calculator();
         int a = 5;
         int potegaResults = calculator.potega(a);
-        assertEquals(25, potegaResults);
+        assertEquals(25, potegaResults, 0.01);
     }
 }

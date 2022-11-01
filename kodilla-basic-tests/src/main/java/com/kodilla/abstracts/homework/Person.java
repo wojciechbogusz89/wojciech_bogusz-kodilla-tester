@@ -4,14 +4,18 @@ public class Person {
     private String name;
     private String lastName;
     private int age;
+    private Job job;
 
 
 
 
-    public Person(String name, String lastName, int age) {
+
+    public Person(String name, String lastName, int age, Job job) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
+        this.job = job;
+
 
 
 
@@ -29,6 +33,12 @@ public class Person {
     public int getAge() {
         return age;
 
+    }
+    public void showResponsibilties() {
+        System.out.println(name + lastName + " " + job.getResponsibilities());
+    }
+    public void showAge() {
+        System.out.println();
     }
 
 
