@@ -12,4 +12,5 @@ public class Calculator {
     public  int potega (int a) {
         return a * a;
     }
+
 }
