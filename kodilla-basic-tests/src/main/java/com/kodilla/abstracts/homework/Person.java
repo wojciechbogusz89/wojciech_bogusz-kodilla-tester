@@ -1,9 +1,11 @@
 package com.kodilla.abstracts.homework;
 
-public abstract class Person {
+public class Person {
     private String name;
     private String lastName;
     private int age;
+
+
 
 
     public Person(String name, String lastName, int age) {
@@ -11,7 +13,11 @@ public abstract class Person {
         this.lastName = lastName;
         this.age = age;
 
+
+
     }
+
+
 
     public String getName() {
         return name;
@@ -25,5 +31,5 @@ public abstract class Person {
 
     }
 
-}
 
+}
