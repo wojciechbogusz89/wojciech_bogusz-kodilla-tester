@@ -14,13 +14,13 @@ public class BMW implements Car {
 
     @Override
     public int increaseSpeed() {
-        return + 20;
+        return speed + 20;
 
     }
 
     @Override
     public int deacreseSpeed() {
-        return - 15;
+        return speed - 15;
 
 
     }

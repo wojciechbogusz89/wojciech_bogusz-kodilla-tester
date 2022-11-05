@@ -6,12 +6,12 @@ public class CarRace {
         doRace(audi);
         BMW bmw = new BMW(110);
         doRace(bmw);
-        Mercedes mercedes = new Mercedes(105);
+        Mercedes mercedes = new Mercedes(100);
         doRace(mercedes);
 
         }
     private static void doRace(Car car){
-        System.out.println(car.getSpeed() + car.increaseSpeed() + car.increaseSpeed() + car.increaseSpeed() + car.deacreseSpeed() + car.deacreseSpeed());
+        System.out.println(car.getSpeed() + car.increaseSpeed() - car.getSpeed() + car.increaseSpeed() - car.getSpeed() + car.increaseSpeed() - car.getSpeed() + car.deacreseSpeed() - car.getSpeed() + car.deacreseSpeed() - car.getSpeed());
 
 
 
