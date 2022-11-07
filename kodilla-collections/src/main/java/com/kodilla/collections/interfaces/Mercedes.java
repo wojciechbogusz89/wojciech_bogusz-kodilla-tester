@@ -15,14 +15,14 @@ public class Mercedes implements Car {
     }
 
     @Override
-    public int increaseSpeed() {
-        return speed+ 10;
+    public void increaseSpeed() {
+        speed+= 10;
 
     }
 
     @Override
-    public int deacreseSpeed() {
-        return speed - 10;
+    public void deacreseSpeed() {
+        speed += - 10;
 
 
     }

@@ -10,11 +10,17 @@ public class CarRace {
         doRace(mercedes);
 
         }
-    private static void doRace(Car car){
-        System.out.println(car.getSpeed() + car.increaseSpeed() - car.getSpeed() + car.increaseSpeed() - car.getSpeed() + car.increaseSpeed() - car.getSpeed() + car.deacreseSpeed() - car.getSpeed() + car.deacreseSpeed() - car.getSpeed());
-
-
-
-
+    private static void doRace(Car car) {
+        car.increaseSpeed();
+        car.increaseSpeed();
+        car.increaseSpeed();
+        car.deacreseSpeed();
+        car.deacreseSpeed();
+        System.out.println(car.getSpeed());
     }
 }
+
+
+
+
+
