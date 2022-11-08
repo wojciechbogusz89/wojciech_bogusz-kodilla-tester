@@ -5,11 +5,13 @@ import com.kodilla.collections.interfaces.BMW;
 import com.kodilla.collections.interfaces.Car;
 import com.kodilla.collections.interfaces.Mercedes;
 
-public class CarUtils {
-    public static void describeCar(Car car) {
+public class        CarUtils {
+    public static void displayCar (Car car) {
         System.out.println("---------------------");
         System.out.println("Car Brand" + getCarBrand(car));
         System.out.println("Car speed" + car.getSpeed());
+     ;
+
 
     }
 
@@ -21,9 +23,7 @@ public class CarUtils {
         else if (car instanceof Mercedes)
             return "Mercedes";
         else
-            return "Unknown brand name";
-    }
+            return "Unknown brand name";}
 
-    public static void displayCarInfo(Car car) {
-    }
+
 }
