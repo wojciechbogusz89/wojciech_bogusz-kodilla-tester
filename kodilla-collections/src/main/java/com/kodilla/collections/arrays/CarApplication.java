@@ -7,17 +7,19 @@ import java.util.Random;
 public class CarApplication {
     public static  Car opiszCar (){
             Random random = new Random();
+            Random random1 = new Random();
             int opiszCarBrand = random.nextInt(3);
-            int speed = random.nextInt(300);
+            int predkosc =random1.nextInt(300);
             double a = getRandomBrand(random);
-            if (opiszCarBrand== 0)
-                return new Audi(4);
+            if ( opiszCarBrand == 0)
+                return new Audi(predkosc) ;
 
-            else if (opiszCarBrand== 1)
-                return new BMW(10 );
+            else if (opiszCarBrand == 1)
+                return new BMW(predkosc);
             else {
-                return new Mercedes(6);
+                return new Mercedes(predkosc);
             }
+
     }
     private static double getRandomBrand(Random random) {
         return random.nextDouble() * 100 + 1;
