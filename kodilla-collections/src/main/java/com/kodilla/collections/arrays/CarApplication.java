@@ -8,6 +8,7 @@ public class CarApplication {
     public static  Car opiszCar (){
             Random random = new Random();
             int opiszCarBrand = random.nextInt(3);
+            int speed = random.nextInt(300);
             double a = getRandomBrand(random);
             if (opiszCarBrand== 0)
                 return new Audi(4);
