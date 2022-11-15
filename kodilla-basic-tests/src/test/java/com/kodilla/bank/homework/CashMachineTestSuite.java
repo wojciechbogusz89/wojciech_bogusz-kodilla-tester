@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CashMachineTestSuite {
     @Test
-    public void shouldHaveZeroLength() {
+    public void length() {
         CashMachine cashMachine = new CashMachine();
 
         int[] values = cashMachine.getOperations();
@@ -14,7 +14,7 @@ class CashMachineTestSuite {
     }
 
     @Test
-    public void shouldAddTwoElementsToArray() {
+    public void elementsToArray() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.addOperation(100);
         cashMachine.addOperation(-50);
@@ -26,7 +26,7 @@ class CashMachineTestSuite {
     }
 
     @Test
-    public void shouldCalculateBalance() {
+    public void calculateBalance() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.addOperation(200);
         cashMachine.addOperation(100);
@@ -37,7 +37,7 @@ class CashMachineTestSuite {
     }
 
     @Test
-    public void shouldReturnNumberOfDeposits() {
+    public void returnNumberOfDeposits() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.addOperation(200);
         cashMachine.addOperation(100);
@@ -48,7 +48,7 @@ class CashMachineTestSuite {
     }
 
     @Test
-    public void shouldReturnNumberOfWithdraws() {
+    public void returnNumberOfWithdraws() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.addOperation(200);
         cashMachine.addOperation(-100);
@@ -59,7 +59,7 @@ class CashMachineTestSuite {
     }
 
     @Test
-    public void shouldCalculateAverageOfDeposits() {
+    public void calculateAverageOfDeposits() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.addOperation(100);
         cashMachine.addOperation(200);
@@ -70,7 +70,7 @@ class CashMachineTestSuite {
     }
 
     @Test
-    public void shouldCalculateAverageOfWithdraws() {
+    public void calculateAverageOfWithdraws() {
         CashMachine cashMachine = new CashMachine();
         cashMachine.addOperation(200);
         cashMachine.addOperation(-100);
