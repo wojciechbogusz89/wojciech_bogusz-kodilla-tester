@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BankTestSuite {
+
+
     @Test
     public void length() {
         CashMachine cashMachine = new CashMachine();
