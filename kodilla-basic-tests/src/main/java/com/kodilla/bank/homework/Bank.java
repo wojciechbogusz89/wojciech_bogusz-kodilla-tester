@@ -2,55 +2,71 @@ package com.kodilla.bank.homework;
 
 public class Bank {
 
-
-        private CashMachine[] cashMachines = new CashMachine[0];
-
-        private int size = 0;
+    private CashMachine[] values;
+    private int size;
 
 
+    public Bank() {
+        this.values = new CashMachine[0];
+        this.size = 0;
+    }
 
-        public void addCashMachine(CashMachine cashMachine) {
-            this.size++;
-            CashMachine[] cashMachines1 = new CashMachine[this.size];
-            System.arraycopy(cashMachines, 0, cashMachines1, 0, cashMachines.length);
-            cashMachines1[this.size - 1] = cashMachine;
-            this.cashMachines = cashMachines1;
 
+    public double getBalance() {
+        int sum = 0;
+        for (CashMachine bankomat : values) {
+            sum += bankomat.getBalance();
         }
+        return sum;
+    }
 
+    public void add(CashMachine value) {
+        this.size++;
+        CashMachine[] newTab = new CashMachine[this.size];
+        System.arraycopy(values, 0, newTab, 0, values.length);
+        newTab[this.size - 1] = value;
+        this.values = newTab;
+    }
 
-        public int getTotalBalance() {
-            int sum = 0;
-            for (CashMachine cashMachine : cashMachines) {
-                sum += cashMachine.getBalance();
-            }
-            return sum;
+    public int getNumberOfIncomes() {
+        int incomes = 0;
+        for (CashMachine bankomat : values) {
+            incomes += bankomat.getNumberIncomes();
         }
-
-        public int getTotalNumberOfDeposits() {
-            int sum = 0;
-            for (CashMachine cashMachine : cashMachines) {
-                sum += cashMachine.getNumberOfDeposits();
-            }
-            return sum;
+        return incomes;
+    }
+    public int getSumOfIncomes(){
+        int sumIncomes = 0;
+        for (CashMachine bankomat : values){
+            sumIncomes += bankomat.getSumIncomes();
         }
+        return sumIncomes;
+    }
 
-        public int getTotalNumberOfWithdraws() {
-            int sum = 0;
-            for (CashMachine cashMachine : cashMachines) {
-                sum += cashMachine.getNumberOfWithdraws();
-
-            }
-            return  sum;
+    public int getNumberOfWithdraws() {
+        int withdraws = 0;
+        for (CashMachine bankomat : values) {
+            withdraws += bankomat.getNumberWithdraws();
         }
+        return withdraws;
+    }
 
-        public double getTotalAverageOfDeposits() {
-            double avgDeposit = (this.cashMachine1.getSumOfDeposits() + this.cashMachine2.getSumOfDeposits() + this.cashMachine3.getSumOfDeposits()) / (this.cashMachine1.getNumberOfDeposits() + this.cashMachine2.getNumberOfDeposits() + this.cashMachine3.getNumberOfDeposits());
-            return avgDeposit;
+    public int getSumOfWithdraws(){
+        int sumWithdraws = 0;
+        for (CashMachine bankomat : values){
+            sumWithdraws += bankomat.getSumWithdraws();
         }
+        return sumWithdraws;
+    }
 
-        public double getTotalAverageOfWithdraws() {
-            double avgWithdraw = (this.cashMachine1.getSumOfWithdraws() + this.cashMachine2.getSumOfWithdraws() + this.cashMachine3.getSumOfWithdraws()) / (this.cashMachine1.getNumberOfWithdraws() + this.cashMachine2.getNumberOfWithdraws() + this.cashMachine3.getNumberOfWithdraws());
-            return avgWithdraw;
-        }
+
+    public double averageOfIncomes() {
+        return getSumOfIncomes()/(double)getNumberOfIncomes();
+    }
+    public double averageOfWithdraws() {
+        return getSumOfWithdraws()/(double)getNumberOfWithdraws();
+    }
+
+
 }
+
