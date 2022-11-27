@@ -9,7 +9,6 @@ public class WarehouseApp {
     warehouse.addOrder(new Order("2"));
     warehouse.addOrder(new Order("3"));
 
-    warehouse.getOrder("1");
 
     try {
         Order result = warehouse.getOrder("4");
