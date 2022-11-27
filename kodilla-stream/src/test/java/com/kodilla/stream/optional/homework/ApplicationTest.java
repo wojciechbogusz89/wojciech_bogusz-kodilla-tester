@@ -4,25 +4,21 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ApplicationTest {
+class  ApplicationTest {
     @Test
     public void shouldReturnTeacherName() {
-
-        Teacher teacher = new Teacher("Andrzej Duda");
-
-        Student student = new Student("Jan Kowalski", teacher);
-
-        assertEquals("Andrzej Duda", teacher.getName());
+        Student student = new Student("Jan Kowalski", new Teacher("Andrzej Duda"));
+        String teacher = Application.getTeacherName(student);
+        assertEquals("Andrzej Duda", teacher);
     }
 
     @Test
-    public void shouldReturnTeacherNullName() {
+    public void shouldReturnUndefined() {
+        Student student = new Student("Adam Nowak", null);
+        String teacher = Application.getTeacherName(student);
+        assertEquals("<undefined>", teacher);
 
-        Teacher teacher = new Teacher(null);
 
-        Student student = new Student("Adam Nowak", teacher);
-
-        assertEquals("<undefined>" , student.getTeacher());
     }
 }
 
