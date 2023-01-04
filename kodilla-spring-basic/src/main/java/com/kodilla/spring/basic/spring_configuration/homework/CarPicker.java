@@ -13,13 +13,13 @@ public class CarPicker {
     @Bean
     public Car dependsOfSeason() {
         Car car;
-        if ((MonthDay.now().isAfter(MonthDay.of(3, 20))
-                && MonthDay.now().isBefore(MonthDay.of(6, 20)))
-                || (MonthDay.now().isAfter(MonthDay.of(8, 20))
-                && MonthDay.now().isBefore(MonthDay.of(12, 20)))) {
+        if ((MonthDay.now().isAfter(MonthDay.of(4, 1))
+                && MonthDay.now().isBefore(MonthDay.of(5, 30)))
+                || (MonthDay.now().isAfter(MonthDay.of(9, 1))
+                && MonthDay.now().isBefore(MonthDay.of(11, 30)))) {
             car = new Sedan();
-        } else if (MonthDay.now().isAfter(MonthDay.of(12, 20))
-                && MonthDay.now().isBefore(MonthDay.of(3, 20))) {
+        } else if (MonthDay.now().isAfter(MonthDay.of(12, 1))
+                && MonthDay.now().isBefore(MonthDay.of(3, 31))) {
             car = new SUV();
         } else {
             car = new Cabrio();
