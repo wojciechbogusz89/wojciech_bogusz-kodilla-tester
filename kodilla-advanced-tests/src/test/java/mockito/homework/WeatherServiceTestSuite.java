@@ -12,7 +12,7 @@ public class WeatherServiceTestSuite {
     Location location2 = Mockito.mock(Location.class);
 
     @Test//
-    public void  notificationCanBeSendToAllSubscribers() {
+    public void  notificationCanBeSendToAllUsers() {
 
         weatherAlertService.addUser(user1, location1);
         weatherAlertService.addUser(user2, location2);
@@ -24,7 +24,7 @@ public class WeatherServiceTestSuite {
     }
 
     @Test
-    public void subscribersShouldReceiveNotificationsFromHisLocation() {
+    public void UsersShouldReceiveNotificationsFromHisLocation() {
         weatherAlertService.addUser(user1, location1);
         weatherAlertService.addUser(user2, location2);
 
@@ -37,7 +37,7 @@ public class WeatherServiceTestSuite {
     }
 
     @Test
-    public void subscriberShouldUnsubcribe() {
+    public void usersShouldUnsubscribe() {
         weatherAlertService.addUser(user1, location1);
         weatherAlertService.addUser(user2, location2);
         weatherAlertService.removeLocation(location1);
