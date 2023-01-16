@@ -3,65 +3,91 @@ package mockito.homework;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-public class WeatherServiceTestSuite {
-    WeatherService weatherAlertService = new WeatherService();
-    NotificationAlert notificationAlert = Mockito.mock(NotificationAlert.class);
+class NotificationServiceTestSuite {
+    WeatherService notificationService = new WeatherService();
     User user1 = Mockito.mock(User.class);
     User user2 = Mockito.mock(User.class);
-    Location location1 = Mockito.mock(Location.class);
-    Location location2 = Mockito.mock(Location.class);
+    User user3 = Mockito.mock(User.class);
+    Location city1 = Mockito.mock(Location.class);
+    Location city2 = Mockito.mock(Location.class);
+    Location city3 = Mockito.mock(Location.class);
+    NotificationAlert notificationAlert = Mockito.mock(NotificationAlert.class);
 
-    @Test//
-    public void  notificationCanBeSendToAllUsers() {
+    @Test
+    public void subscribedToLocalizationUsersShouldGetNotification() {
+        notificationService.addUser(user1,city1);
 
-        weatherAlertService.addUser(user1, location1);
-        weatherAlertService.addUser(user2, location2);
+        notificationService.sendNotificationAlertToLocalization(notificationAlert,city1);
 
-        weatherAlertService.sendNotificationAlertToAllSubscribers(notificationAlert);
+        Mockito.verify(user1).receiveNotification(notificationAlert);
+
+    }
+    @Test
+    public void userWhoUnsubscribedInLocalizationShouldNotReceiveNotification() {
+        notificationService.addUser(user1,city1);
+        notificationService.addUser(user1,city2);
+
+        notificationService.removeUserFromLocation(user1, city1);
+
+        notificationService.sendNotificationAlertToLocalization(notificationAlert,city1);
+        notificationService.sendNotificationAlertToLocalization(notificationAlert,city2);
         Mockito.verify(user1, Mockito.times(1)).receiveNotification(notificationAlert);
+
+
+    }
+    @Test
+    public void userWhoUnsubscribedInAllLocalizationsShouldNotReceiveNotification () {
+        notificationService.addUser(user1,city1);
+        notificationService.addUser(user1,city2);
+        notificationService.addUser(user1,city3);
+
+        notificationService.removeUser(user1);
+        notificationService.sendNotificationAlertToEveryone(notificationAlert);
+
+        Mockito.verify(user1, Mockito.never()).receiveNotification(notificationAlert);
+
+
+    }
+    @Test
+    public void shouldSendNotificationOnlyToUsersWhoSubscribedInCorrectLocalization() {
+        notificationService.addUser(user1,city1);
+        notificationService.addUser(user2,city1);
+        notificationService.addUser(user3,city1);
+        notificationService.addUser(user1,city3);
+        notificationService.addUser(user2,city2);
+
+        notificationService.sendNotificationAlertToLocalization(notificationAlert,city1);
+
+        Mockito.verify(user1, Mockito.times(1)).receiveNotification(notificationAlert);
+
+
+    }
+    @Test
+    public void shouldSendNotificationsToEverybody() {
+        notificationService.addUser(user2, city2);
+        notificationService.addUser(user1,city1);
+        notificationService.addUser(user3,city3);
+        notificationService.addUser(user2,city1);
+
+        notificationService.sendNotificationAlertToEveryone(notificationAlert);
+        Mockito.verify(user2).receiveNotification(notificationAlert);
+        Mockito.verify(user1).receiveNotification(notificationAlert);
+        Mockito.verify(user3).receiveNotification(notificationAlert);
         Mockito.verify(user2, Mockito.times(1)).receiveNotification(notificationAlert);
 
     }
-
     @Test
-    public void UsersShouldReceiveNotificationsFromHisLocation() {
-        weatherAlertService.addUser(user1, location1);
-        weatherAlertService.addUser(user2, location2);
+    public void shouldDeleteCurrentLocalization() {
+        notificationService.addUser(user1,city1);
+        notificationService.addUser(user3,city1);
+        notificationService.addUser(user2,city1);
 
-        weatherAlertService.sendNotification(location1);
-        weatherAlertService.sendNotification(location2);
-        Mockito.verify(user1, Mockito.times(1)).receive(location1);
-        Mockito.verify(user2, Mockito.times(1)).receive(location2)
-        ;
+        notificationService.removeLocation(city1);
+        notificationService.sendNotificationAlertToLocalization(notificationAlert, city1);
 
-    }
-
-    @Test
-    public void usersShouldUnsubscribe() {
-        weatherAlertService.addUser(user1, location1);
-        weatherAlertService.addUser(user2, location2);
-        weatherAlertService.removeLocation(location1);
-        weatherAlertService.removeLocation(location2);
-        Mockito.verify(user1, Mockito.times(0)).receive(location1);
-        Mockito.verify(user2, Mockito.times(0)).receive(location2);
-    }
-    @Test
-    public void unsubscribedShouldNotReceiveNotification(){
-        Location city1 = Mockito.mock(Location.class);
-        User client = Mockito.mock(User.class);
-        weatherAlertService.sendNotification(city1);
-        Mockito.verify(client, Mockito.never()).receive(city1);
-
-    }
-
-    @Test
-    public void shouldDeleteAllSubscription(){
-        weatherAlertService.addUser(user1, location1);
-        weatherAlertService.addUser(user1, location2);
-        weatherAlertService.removeUser(user1,location1);
-        weatherAlertService.removeUser(user1,location2);
-        Mockito.verify(user1, Mockito.times(0)).receive(location2);
-        Mockito.verify(user1, Mockito.times(0)).receive(location1);
+        Mockito.verify(user1, Mockito.never()).receiveNotification(notificationAlert);
+        Mockito.verify(user3, Mockito.never()).receiveNotification(notificationAlert);
+        Mockito.verify(user2, Mockito.never()).receiveNotification(notificationAlert);
 
     }
 
