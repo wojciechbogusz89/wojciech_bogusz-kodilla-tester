@@ -7,6 +7,5 @@ import org.springframework.boot.SpringApplication;
 public class KodillaRestApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(KodillaRestApiApplication.class, args);
-        System.out.println("Kodilla");
     }
 }
